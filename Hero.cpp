@@ -20,6 +20,10 @@ void Hero::loadTexture(const std::string& filepath) {
 
 }
 void Hero::Show() {
+	
+	this->position->x += this->speed*this->MoveXdirection;
+
+
 	glTranslatef(this->position->x, this->position->y, 0);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
