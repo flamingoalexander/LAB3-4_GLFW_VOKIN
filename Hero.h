@@ -10,6 +10,7 @@ public:
 	int MoveXdirection;
 	int direction;
 	float weight;
+	int HeroStatement;
 
 	//GLuint* texture;
 	Hero(std::string Texturefilepath) {
@@ -18,7 +19,8 @@ public:
 		this->MoveXdirection = 0;
 		this->speed = 2;
 		this->direction = 1;
-		this->weight = 1;
+		this->weight = 3;
+		HeroStatement = 0;
 	}
 	void Show();
 	int width;

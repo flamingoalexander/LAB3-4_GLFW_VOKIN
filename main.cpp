@@ -28,7 +28,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             if (action == GLFW_PRESS)
             {
                 std::cout << "Key W was pressed." << std::endl;
-                game->hero->position->y -= 100;
+                game->hero->position->y -= 300;
             }
             else if (action == GLFW_RELEASE)
                 std::cout << "Key W was released." << std::endl;
