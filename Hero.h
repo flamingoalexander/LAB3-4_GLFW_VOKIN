@@ -6,11 +6,13 @@ class Hero
 public:
 	unsigned int texture;
 
-	//Point* position = new Point(50,50);
-
+	Point* position;
+	int MoveXDirection;
 	//GLuint* texture;
 	Hero(std::string Texturefilepath) {
 		loadTexture(Texturefilepath);
+		this->position = new Point(100, 100);
+		this->MoveXDirection = 0;
 	}
 	void Show();
 	int width;

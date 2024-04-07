@@ -20,7 +20,7 @@ void Hero::loadTexture(const std::string& filepath) {
 
 }
 void Hero::Show() {
-	glTranslatef(50, 50, 0);
+	glTranslatef(this->position->x, this->position->y, 0);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glColor3f(1, 1, 1);

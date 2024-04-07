@@ -15,7 +15,6 @@ int windowState = 0;
 
 GLuint bg;
 
-
 float vertex[] = { -0, -300, 300, -300, 300, 300 };
 
 
@@ -26,25 +25,37 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         switch (key) {
         case GLFW_KEY_W:
             if (action == GLFW_PRESS)
+            {
                 std::cout << "Key W was pressed." << std::endl;
+                game->hero->position->y -= 10;
+            }
             else if (action == GLFW_RELEASE)
                 std::cout << "Key W was released." << std::endl;
             break;
         case GLFW_KEY_A:
             if (action == GLFW_PRESS)
+            {
                 std::cout << "Key A was pressed." << std::endl;
+                game->hero->position->x -= 10;
+            }
             else if (action == GLFW_RELEASE)
                 std::cout << "Key A was released." << std::endl;
             break;
         case GLFW_KEY_S:
             if (action == GLFW_PRESS)
+            {
                 std::cout << "Key S was pressed." << std::endl;
+                game->hero->position->y += 10;
+            }
             else if (action == GLFW_RELEASE)
                 std::cout << "Key S was released." << std::endl;
             break;
         case GLFW_KEY_D:
             if (action == GLFW_PRESS)
+            {
                 std::cout << "Key D was pressed." << std::endl;
+                game->hero->position->x += 10;
+            }
             else if (action == GLFW_RELEASE)
                 std::cout << "Key D was released." << std::endl;
             break;

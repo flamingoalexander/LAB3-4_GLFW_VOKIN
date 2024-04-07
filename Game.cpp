@@ -7,7 +7,6 @@ void Game::Start() {
 
 	
 	
-	this->hero = new Hero("sprite.png");
 	this->hero->Show();
 	//glLoadIdentity();
 	//glBegin(GL);
