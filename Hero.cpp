@@ -27,8 +27,11 @@ void Hero::Show() {
 	glTranslatef(this->position->x, this->position->y, 0);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
+
 	glColor3f(1, 1, 1);
 	//glClear(GL_COLOR_BUFFER_BIT);
+	glEnable(GL_ALPHA_TEST);
+	glAlphaFunc(GL_GREATER, 0.99);
 	float textureCoord[] = {
 		0+(HeroStatement * 1.0/8),0,     
 		(HeroStatement * 1.0 / 8) + 1.0/8,0,    
@@ -62,5 +65,6 @@ void Hero::Show() {
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		//this->position->y += weight;
     glPopMatrix();
+	glDisable(GL_ALPHA_TEST);
 }
 

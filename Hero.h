@@ -19,7 +19,7 @@ public:
 		this->MoveXdirection = 0;
 		this->speed = 2;
 		this->direction = 1;
-		this->weight = 3;
+		this->weight = 5;
 		HeroStatement = 0;
 	}
 	void Show();
