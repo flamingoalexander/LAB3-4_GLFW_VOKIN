@@ -181,7 +181,7 @@ int main()
 
 
             
-            
+            int a = 0;
             game->Start();
             //Hero* hero = new Hero
             //char ExitS[] = "Exit";
