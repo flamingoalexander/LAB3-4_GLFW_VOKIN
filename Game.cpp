@@ -1,13 +1,22 @@
 #include "Game.h"
 #include "Hero.h"
 #include <GLFW/glfw3.h>
-void Game::Start() {
+#include <iostream>
+void Game::Start(int WinWidth, int WinHeight) {
 	glPushMatrix();
 	//glLoadIdentity();
 
-	
-	
+	if (hero->position->y+80 < WinHeight)
+	{
+		hero->position->y += hero->weight;
+	}
+	std::cout << hero->position->y << std::endl;
 	this->hero->Show();
+
+
+
+
+
 	//glLoadIdentity();
 	//glBegin(GL);
 	 

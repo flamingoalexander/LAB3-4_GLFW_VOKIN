@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Game.h"
 #include "Hero.h"
-
+#include <chrono>
 int WinWidth = 640, WinHeight = 480;
 Button* Show;
 Button* Start;
@@ -16,6 +16,7 @@ int windowState = 0;
 GLuint bg;
 
 float vertex[] = { -0, -300, 300, -300, 300, 300 };
+
 
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -135,7 +136,6 @@ int main()
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
-
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback); // обработчик изменения окна
     glfwSetMouseButtonCallback(window, mouse_button_callback); // обработчик нажатия мышки
     glfwSetKeyCallback(window, key_callback);
@@ -158,7 +158,7 @@ int main()
         if (windowState == 0) {
             glClear(GL_COLOR_BUFFER_BIT);
             glPushMatrix();
-            std::cout << WinWidth << " " << WinHeight << std::endl;
+            //std::cout << WinWidth << " " << WinHeight << std::endl;
             char ShowS[] = "Show";
             char StartS[] = "Start";
             char ExitS[] = "Exit";
@@ -196,9 +196,7 @@ int main()
             glClear(GL_COLOR_BUFFER_BIT);
 
 
-
-            
-            game->Start();
+            game->Start(WinWidth, WinHeight);
             //Hero* hero = new Hero
             //char ExitS[] = "Exit";
 

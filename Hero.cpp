@@ -29,13 +29,13 @@ void Hero::Show() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glColor3f(1, 1, 1);
 	//glClear(GL_COLOR_BUFFER_BIT);
-	float textureCoord[] = { 1.0 / 8,0,    0,0,        0,1.0 / 3,           1.0 / 8, 1.0 / 3 };
+	float textureCoord[] = {0,0,        1.0 / 8,0,       1.0 / 8, 1.0 / 3 ,     0,1.0 / 3, };		
 	if (direction == -1) // отзеркаливание текстуры
 	{
 		for (int i = 0; i < 1; i++)
 		{
 			//float textureCoord[] = {1.0/8,0,    0,0,                0,1.0/3,            1.0 / 8, 1.0/3 };
-			//float textureCoord[] = {0,0,        1.0 / 8,0,       1.0 / 8, 1.0 / 3 ,     0,1.0 / 3, };			
+				
 			std::swap(textureCoord[i], textureCoord[i + 2]);
 		}
 		for (int i = 4; i < 5; i++)
@@ -56,5 +56,6 @@ void Hero::Show() {
 		glVertexPointer(3, GL_FLOAT, 0, vertex);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		//this->position->y += weight;
     glPopMatrix();
 }

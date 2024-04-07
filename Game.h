@@ -6,7 +6,7 @@ class Game
 {
 public:
 	Hero* hero;
-	void Start();
+	void Start(int WinWidth, int WinHeight);
 	Game() {
 		this->hero = new Hero("sprite.png");
 	}
