@@ -29,8 +29,10 @@ void Hero::Show() {
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glColor3f(1, 1, 1);
 	//glClear(GL_COLOR_BUFFER_BIT);
-	float textureCoord[] = {1.0/8,0, 0,0, 0,1.0/3, 1.0 / 8, 1.0/3 };
-	float vertex[] = { 0, 0, 0, 80, 0, 0, 80, 80, 0, 0, 80, 0};
+	//float textureCoord[] = {1.0/8,0, 0,0, 0,1.0/3, 1.0 / 8, 1.0/3 };
+	float textureCoord[] = {1.0/8, 0, 0,0, 0,1.0 / 3, 1.0 / 8, 1.0 / 3 };
+	//float vertex[] = {0, 0, 0, 80, 0, 0, 80, 80, 0, 0, 80, 0};
+	float vertex[] = {0, 0, 0, direction * 80, 0, 0, direction*80, 80, 0, 0, 80, 0 };
 	glPushMatrix();
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);

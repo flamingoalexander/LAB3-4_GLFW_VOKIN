@@ -37,6 +37,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             {
                 std::cout << "Key A was pressed." << std::endl;
                 game->hero->MoveXdirection = -1;
+                game->hero->direction = -1;
             }
             else if (action == GLFW_RELEASE)
                 game->hero->MoveXdirection = 0;
@@ -56,6 +57,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
             {
                 std::cout << "Key D was pressed." << std::endl;
                 game->hero->MoveXdirection = 1;
+                game->hero->direction = 1;
             }
             else if (action == GLFW_RELEASE)
             {
