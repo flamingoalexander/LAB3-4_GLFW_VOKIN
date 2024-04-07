@@ -59,3 +59,4 @@ void Hero::Show() {
 		//this->position->y += weight;
     glPopMatrix();
 }
+

@@ -2,17 +2,14 @@
 #include "Hero.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <ctime>
 void Game::Start(int WinWidth, int WinHeight) {
 	glPushMatrix();
 	//glLoadIdentity();
-
-	if (hero->position->y+80 < WinHeight)
-	{
-		hero->position->y += hero->weight;
-	}
+	
 	std::cout << hero->position->y << std::endl;
 	this->hero->Show();
-
+	PhysicsForHero(WinHeight, this->hero);
 
 
 
@@ -43,3 +40,11 @@ void Game::Start(int WinWidth, int WinHeight) {
 	glPopMatrix();
 }
 
+void Game::PhysicsForHero(int WinHeight, Hero* hero)
+{
+	if ((hero->position->y + 80 < WinHeight))
+	{
+		//if ()
+		hero->position->y += hero->weight;
+	}
+}
