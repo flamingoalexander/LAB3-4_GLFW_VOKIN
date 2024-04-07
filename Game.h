@@ -1,9 +1,14 @@
 #pragma once
+#include "Hero.h"
+#include "Game.h"
+#include <GLFW/glfw3.h>
 class Game
 {
 public:
-	//Hero* hero = new Hero("sprite.png");
+	Hero* hero;
 	void Start();
-	//Game();
+	Game() {
+		this->hero = new Hero("sprite.png");
+	}
 };
 

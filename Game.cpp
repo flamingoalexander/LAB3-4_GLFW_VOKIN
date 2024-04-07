@@ -7,8 +7,8 @@ void Game::Start() {
 
 	
 	
-	Hero* hero = new Hero("sprite.png");
-	hero->Show();
+	this->hero = new Hero("sprite.png");
+	this->hero->Show();
 	//glLoadIdentity();
 	//glBegin(GL);
 	 
@@ -35,6 +35,3 @@ void Game::Start() {
 	glPopMatrix();
 }
 
-//Game::Game() {
-//	this->hero = new Hero("sprite.png");
-//}
