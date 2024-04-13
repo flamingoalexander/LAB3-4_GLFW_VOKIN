@@ -22,52 +22,7 @@ float vertex[] = { -0, -300, 300, -300, 300, 300 };
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GLFW_TRUE); // Закрыть приложение при нажатии Escape
-    else if (action == GLFW_PRESS || action == GLFW_RELEASE) {
-        switch (key) {
-        case GLFW_KEY_W:
-            if (action == GLFW_PRESS)
-            {
-                std::cout << "Key W was pressed." << std::endl;
-                game->hero->position->y -= 300;
-            }
-            else if (action == GLFW_RELEASE)
-                std::cout << "Key W was released." << std::endl;
-            break;
-        case GLFW_KEY_A:
-            if (action == GLFW_PRESS)
-            {
-                std::cout << "Key A was pressed." << std::endl;
-                game->hero->MoveXdirection = -1;
-                game->hero->direction = -1;
-            }
-            else if (action == GLFW_RELEASE)
-                game->hero->MoveXdirection = 0;
-                std::cout << "Key A was released." << std::endl;
-            break;
-        case GLFW_KEY_S:
-            if (action == GLFW_PRESS)
-            {
-                std::cout << "Key S was pressed." << std::endl;
-                game->hero->position->y += 10;
-            }
-            else if (action == GLFW_RELEASE)
-                std::cout << "Key S was released." << std::endl;
-            break;
-        case GLFW_KEY_D:
-            if (action == GLFW_PRESS)
-            {
-                std::cout << "Key D was pressed." << std::endl;
-                game->hero->MoveXdirection = 1;
-                game->hero->direction = 1;
-            }
-            else if (action == GLFW_RELEASE)
-            {
-                std::cout << "Key D was released." << std::endl;
-                game->hero->MoveXdirection = 0;
-            }
-            break;
-        }
-    }
+    game->key_callback(key, scancode, action);
 }
 
 
@@ -196,7 +151,7 @@ int main()
             glClear(GL_COLOR_BUFFER_BIT);
 
 
-            game->Start(WinWidth, WinHeight);
+            game->Update(WinWidth, WinHeight);
             //Hero* hero = new Hero
             //char ExitS[] = "Exit";
 
