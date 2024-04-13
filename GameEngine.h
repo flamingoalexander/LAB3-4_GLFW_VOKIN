@@ -51,50 +51,62 @@ public:
 
 
 	void CheckCollision() {
-		if (physhero->aabb->LeftUpPoint->x < aabbs[0]->LeftUpPoint->x+ aabbs[0]->width &&
-			physhero->aabb->LeftUpPoint->x + physhero->aabb->width >  aabbs[0]->LeftUpPoint->x &&
-			physhero->aabb->LeftUpPoint->y < aabbs[0]->LeftUpPoint->y + aabbs[0]->height &&
-			physhero->aabb->height + physhero->aabb->LeftUpPoint->y > aabbs[0]->LeftUpPoint->y)
+
+
+
+
+		for (int i = 0; i < aabbs.size(); i++)
 		{
-			//std::cout << "Collision" << std::endl;
-			if (physhero->isStand == false)
+			if (physhero->aabb->LeftUpPoint->x < aabbs[i]->LeftUpPoint->x+ aabbs[i]->width &&
+				physhero->aabb->LeftUpPoint->x + physhero->aabb->width >  aabbs[i]->LeftUpPoint->x &&
+				physhero->aabb->LeftUpPoint->y < aabbs[i]->LeftUpPoint->y + aabbs[i]->height &&
+				physhero->aabb->height + physhero->aabb->LeftUpPoint->y > aabbs[i]->LeftUpPoint->y)
 			{
-				if ( (((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[0]->LeftUpPoint->y)) > -5)
-					&& ((std::abs((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[0]->LeftUpPoint->y)) < 5)))
+				//std::cout << "Collision" << std::endl;
+				if (physhero->isStand == false)
 				{
-					physhero->isStand = true;
-					physhero->py = aabbs[0]->LeftUpPoint->y - 80;
-					physhero->sy = 0;
+					if ( (((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) > -5)
+						&& ((std::abs((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) < 5)))
+					{
+						physhero->isStand = true;
+						physhero->py = aabbs[i]->LeftUpPoint->y - 80;
+						physhero->sy = 0;
+					}
+
+				}
+				//RIGHT 
+				if ((((physhero->aabb->LeftUpPoint->x) - (aabbs[i]->LeftUpPoint->x + aabbs[i]->width)) < 0)
+					&& (((physhero->aabb->LeftUpPoint->x) - (aabbs[i]->LeftUpPoint->x + aabbs[i]->width)) > -5))
+				{
+					std::cout << "Collision" << std::endl;
+					physhero->px = aabbs[i]->LeftUpPoint->x + aabbs[i]->width;
+					physhero->sx = -physhero->sx * 0.5;
+					physhero->sy = physhero->sy * 0.75;
+					//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
 				}
 
-			}
-			//RIGHT BOTTOM
-			if ((((physhero->aabb->LeftUpPoint->x) - (aabbs[0]->LeftUpPoint->x + aabbs[0]->width)) < 0)
-				&& (((physhero->aabb->LeftUpPoint->x) - (aabbs[0]->LeftUpPoint->x + aabbs[0]->width)) > -5))
-			{
-				std::cout << "Collision" << std::endl;
-				physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width;
-				//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
-			}
 
+				if ((((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) < 5) && 
+					(((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) > -5))
+				{
+					physhero->py = aabbs[i]->LeftUpPoint->y + aabbs[i]->height;
+					physhero->sy = 0;
+					std::cout << "Collision" << std::endl;
+				}
 
-			if ((((physhero->aabb->LeftUpPoint->y) - (aabbs[0]->LeftUpPoint->y + aabbs[0]->height)) < 5) && 
-				(((physhero->aabb->LeftUpPoint->y) - (aabbs[0]->LeftUpPoint->y + aabbs[0]->height)) > -5))
-			{
-				physhero->py = aabbs[0]->LeftUpPoint->y + aabbs[0]->height;
-				physhero->sy = 0;
-				std::cout << "Collision" << std::endl;
-			}
-
-
-			if ((((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[0]->LeftUpPoint->x)) > 0)
-				&& (((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[0]->LeftUpPoint->x)) < 5))
-			{
-				std::cout << "Collision" << std::endl;
-				physhero->px = aabbs[0]->LeftUpPoint->x - 80;
-				//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
+				//LEFT
+				if ((((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[i]->LeftUpPoint->x)) > 0)
+					&& (((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[i]->LeftUpPoint->x)) < 5))
+				{
+					std::cout << "Collision" << std::endl;
+					physhero->px = aabbs[i]->LeftUpPoint->x - 80;
+					physhero->sx = -physhero->sx * 0.5;
+					physhero->sy = physhero->sy * 0.75;
+					//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
+				}
 			}
 		}
+
 	}
 
 

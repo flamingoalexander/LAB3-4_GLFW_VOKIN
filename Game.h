@@ -20,7 +20,10 @@ public:
 		this->hero = new Hero("sprite.png");
 		//start = clock();
 		//dt = std::chrono::high_resolution_clock::now();
-        level->push_back(new Block(new Point(100, 320), 200, 200));        
+        level->push_back(new Block(new Point(100, 320), 200, 100));        
+        level->push_back(new Block(new Point(300, 140), 100, 25));
+        level->push_back(new Block(new Point(481, 140), 100, 25));
+        //level->push_back(new Block(new Point(300, 200), 100, 25));
 		this->ge = new GameEngine(hero, level);
 	}
 	void LogicForHero(Hero* hero);

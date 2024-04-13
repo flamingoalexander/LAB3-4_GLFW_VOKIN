@@ -13,7 +13,10 @@ void Game::Update(int WinWidth, int WinHeight) {
 
 	this->hero->Show();
 	LogicForHero(this->hero);
-	
+	for (auto e : *level)
+	{
+		e->Show();
+	}
 		
 
 
