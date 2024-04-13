@@ -18,7 +18,7 @@ public:
 		//dt = std::chrono::high_resolution_clock::now();
 		this->ge = new GameEngine(hero);
 	}
-	void LogicForHero(int WinHeight, Hero* hero);
+	void LogicForHero(Hero* hero);
 
 
 
@@ -30,6 +30,7 @@ public:
                 {
                     std::cout << "Key W was pressed." << std::endl;
                     this->ge->physhero->Jump = true;
+                    
                 }
                 else if (action == GLFW_RELEASE)
                 {
@@ -42,10 +43,13 @@ public:
                 {
                     //std::cout << "Key A was pressed." << std::endl;
                     this->ge->physhero->MoveLeft = true;
+                    this->hero->MoveXdirection -= 1;
+                    this->hero->direction = -1;
                 }
                 else if (action == GLFW_RELEASE)
                 {
                     this->ge->physhero->MoveLeft = false;
+                    this->hero->MoveXdirection += 1;
                 //std::cout << "Key A was released." << std::endl;
                 }
                 break;
@@ -62,12 +66,17 @@ public:
                 if (action == GLFW_PRESS)
                 {
                     this->ge->physhero->MoveRight = true;
+                    this->hero->MoveXdirection += 1;
+                    this->hero->direction = 1;
                     //std::cout << "Key D was pressed." << std::endl;
 
                 }
                 else if (action == GLFW_RELEASE)
                 {
+
                     this->ge->physhero->MoveRight = false;
+                    this->hero->MoveXdirection -= 1;
+                    
                     //std::cout << "Key D was released." << std::endl;
                 }
                 break;

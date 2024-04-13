@@ -28,55 +28,32 @@ public:
 		bool MoveRight;
 		bool MoveLeft;
 		bool Jump;
-		void UpdateHero() { 
-			if (MoveLeft) {
-				ax = -0.1;
-			}
-			else if (MoveRight) {
-				ax = 0.1;
-			} 
-			else {
-				ax = 0;
-			}
-
-			if (Jump && isStand) {
-				sy -= 7;
-			}
+		void UpdateHero();
 			
-			px += sx;
-			py += sy;
-			sx = (sx + ax) * resist;
-			if ((sx > 3))
-			{
-				sx = 3;
-			}
-			if ((sx < -3))
-			{
-				sx = -3;
-			}
-			sy = (sy + ay + gravity) * resist;
-			isStand = false;
-			resist = 0.99;
-			hero->position->x = px; hero->position->y = py;
-			if (py + 80> 480)
-			{
-				py = 480 - 80;
-				sy = 0;
-				isStand = true;
-			}
-		}
 	};
 	PhysHero* physhero;
-	int gravity = 1;
 	std::chrono::time_point<std::chrono::high_resolution_clock> TimeBuffer;
-	
 	void Update() {
 		auto currentTime = std::chrono::steady_clock::now();
 		auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - TimeBuffer).count();
-		if (dt >= 10)
+		if (dt >= 5)
 		{
 			physhero->UpdateHero();
+
+
+
+
+
+
+
+
+
+
+
+
+			TimeBuffer = currentTime;
 		}
+
 	}
 	GameEngine(Hero* hero) {
 		this->physhero = new PhysHero(hero);

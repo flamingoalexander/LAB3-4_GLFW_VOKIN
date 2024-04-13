@@ -12,7 +12,8 @@ void Game::Update(int WinWidth, int WinHeight) {
 
 
 	this->hero->Show();
-	LogicForHero(WinHeight, this->hero);
+	LogicForHero(this->hero);
+
 	ge->Update();
 
 
@@ -29,7 +30,7 @@ void Game::Update(int WinWidth, int WinHeight) {
 	glPopMatrix();
 }
 
-void Game::LogicForHero(int WinHeight, Hero* hero)
+void Game::LogicForHero(Hero* hero)
 {
 	auto currentTime = std::chrono::steady_clock::now();
 	auto dt1 = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - TimeBuffer).count();
