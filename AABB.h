@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include <GLFW/glfw3.h>
 class AABB
 {
 public:
@@ -18,6 +19,27 @@ public:
 		IsIntersectionOnLeftBoard = false;
 		IsIntersectionOnBottomBoard = false;
 		IsIntersectionOnTopBoard = false;
+	}
+	void Show() {
+		glPushMatrix();
+		glBegin(GL_LINES);
+		// Верхняя линия
+		glVertex2f(LeftUpPoint->x, LeftUpPoint->y);
+		glVertex2f(LeftUpPoint->x + width, LeftUpPoint->y);
+
+		// Нижняя линия
+		glVertex2f(LeftUpPoint->x, LeftUpPoint->y + height);
+		glVertex2f(LeftUpPoint->x + width, LeftUpPoint->y + height);
+
+		// Левая линия
+		glVertex2f(LeftUpPoint->x, LeftUpPoint->y);
+		glVertex2f(LeftUpPoint->x, LeftUpPoint->y + height);
+
+		// Правая линия
+		glVertex2f(LeftUpPoint->x + width, LeftUpPoint->y);
+		glVertex2f(LeftUpPoint->x + width, LeftUpPoint->y + height);
+		glEnd();
+		glPopMatrix();
 	}
 };
 

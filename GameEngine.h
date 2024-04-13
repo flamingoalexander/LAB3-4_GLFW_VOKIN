@@ -56,7 +56,44 @@ public:
 			physhero->aabb->LeftUpPoint->y < aabbs[0]->LeftUpPoint->y + aabbs[0]->height &&
 			physhero->aabb->height + physhero->aabb->LeftUpPoint->y > aabbs[0]->LeftUpPoint->y)
 		{
-			std::cout << "Collision" << std::endl;
+			//std::cout << "Collision" << std::endl;
+			if (physhero->isStand == false)
+			{
+				if ( (((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[0]->LeftUpPoint->y)) > -5)
+					&& ((std::abs((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[0]->LeftUpPoint->y)) < 5)))
+				{
+					physhero->isStand = true;
+					physhero->py = aabbs[0]->LeftUpPoint->y - 80;
+					physhero->sy = 0;
+				}
+
+			}
+			//RIGHT BOTTOM
+			if ((((physhero->aabb->LeftUpPoint->x) - (aabbs[0]->LeftUpPoint->x + aabbs[0]->width)) < 0)
+				&& (((physhero->aabb->LeftUpPoint->x) - (aabbs[0]->LeftUpPoint->x + aabbs[0]->width)) > -5))
+			{
+				std::cout << "Collision" << std::endl;
+				physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width;
+				//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
+			}
+
+
+			if ((((physhero->aabb->LeftUpPoint->y) - (aabbs[0]->LeftUpPoint->y + aabbs[0]->height)) < 5) && 
+				(((physhero->aabb->LeftUpPoint->y) - (aabbs[0]->LeftUpPoint->y + aabbs[0]->height)) > -5))
+			{
+				physhero->py = aabbs[0]->LeftUpPoint->y + aabbs[0]->height;
+				physhero->sy = 0;
+				std::cout << "Collision" << std::endl;
+			}
+
+
+			if ((((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[0]->LeftUpPoint->x)) > 0)
+				&& (((physhero->aabb->LeftUpPoint->x + 80) - (aabbs[0]->LeftUpPoint->x)) < 5))
+			{
+				std::cout << "Collision" << std::endl;
+				physhero->px = aabbs[0]->LeftUpPoint->x - 80;
+				//physhero->px = aabbs[0]->LeftUpPoint->x + aabbs[0]->width; std::cout << "Collision on left" << std::endl;
+			}
 		}
 	}
 
@@ -74,8 +111,11 @@ public:
 			physhero->UpdateHero();
 			CheckCollision();
 
-
-
+			for (auto e : aabbs)
+			{
+				e->Show();
+			}
+			physhero->aabb->Show();
 
 
 

@@ -23,7 +23,7 @@ void Hero::Show() {
 	
 	this->position->x += this->speed*this->MoveXdirection;
 
-
+	glPushMatrix();
 	glTranslatef(this->position->x, this->position->y, 0);
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
@@ -66,5 +66,6 @@ void Hero::Show() {
 		//this->position->y += weight;
     glPopMatrix();
 	glDisable(GL_ALPHA_TEST);
+	glPopMatrix();
 }
 

@@ -11,16 +11,15 @@ public:
 	float height;
 	void Show() {
         glPushMatrix();
-        //glTranslatef(Center->x-width/2, Center->y-width/2, 0);
         glTranslatef(position->x, position->y, 0);
         glBegin(GL_TRIANGLES);
-        glColor3f(1, 1, 1); glVertex2f(position->x, position->y);
-        glColor3f(1, 1, 1); glVertex2f(position->x + width, position->y);
-        glColor3f(1, 1, 1); glVertex2f(position->x, position->y+height);
+        glColor3f(1, 1, 1); glVertex2f(0, 0);
+        glColor3f(1, 1, 1); glVertex2f(width, 0);
+        glColor3f(1, 1, 1); glVertex2f(width, height);
 
-        glColor3f(1, 1, 1); glVertex2f(position->x, position->y);
-        glColor3f(1, 1, 1); glVertex2f(position->x, position->y + height);
-        glColor3f(1, 1, 1); glVertex2f(position->x + width, position->y + height);
+        glColor3f(1, 1, 1); glVertex2f(0, 0);
+        glColor3f(1, 1, 1); glVertex2f(0, height);
+        glColor3f(1, 1, 1); glVertex2f(width, height);
         glClear(GL_COLOR_BUFFER_BIT);
         glEnd();
         glPopMatrix();

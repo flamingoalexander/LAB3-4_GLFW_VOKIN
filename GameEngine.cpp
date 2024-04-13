@@ -38,6 +38,7 @@ void GameEngine::PhysHero::UpdateHero() {
 		isStand = false;
 		resist = 0.7;
 		hero->position->x = px; hero->position->y = py;
+		this->aabb->LeftUpPoint->x = px; this->aabb->LeftUpPoint->y = py;
 	}
 	else {
 		if (MoveLeft) {
