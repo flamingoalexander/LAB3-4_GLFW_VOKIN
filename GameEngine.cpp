@@ -64,11 +64,13 @@ void GameEngine::PhysHero::UpdateHero() {
 		isStand = false;
 		resist = 0.99;
 		hero->position->x = px; hero->position->y = py;
+		this->aabb->LeftUpPoint->x = px; this->aabb->LeftUpPoint->y = py;
 	}
-	if (py + 80 > 480)
+	/*if (py + 80 > 480)
 	{
 		py = 480 - 80;
 		sy = 0;
 		isStand = true;
-	}
+	}*/
+	CheckIsStand();
 }

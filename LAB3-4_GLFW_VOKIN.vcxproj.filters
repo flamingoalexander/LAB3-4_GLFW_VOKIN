@@ -19,6 +19,9 @@
     <Filter Include="Hero">
       <UniqueIdentifier>{e2bd4161-71ca-4708-a36d-908c1cc63f99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Block">
+      <UniqueIdentifier>{9ac6f222-78ab-4230-b9e9-25b66ee50871}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="AABB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Block</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="button.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="AABB.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Block</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

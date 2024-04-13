@@ -7,12 +7,20 @@ void Game::Update(int WinWidth, int WinHeight) {
 	glPushMatrix();
 	//glLoadIdentity();
 	
-	std::cout << hero->position->y << std::endl;
+	//std::cout << hero->position->y << std::endl;
 
 
 
 	this->hero->Show();
 	LogicForHero(this->hero);
+	
+	
+	for (auto e : *level)
+	{
+		e->Show();
+	}
+
+
 
 	ge->Update();
 

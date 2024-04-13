@@ -5,18 +5,23 @@
 #include <chrono>
 #include "GameEngine.h"
 #include <iostream>
+#include "Block.h"
+#include "Point.h"
+#include <vector>
 class Game
 {
 public:
 	Hero* hero;
 	void Update(int WinWidth, int WinHeight);
+    std::vector<Block*>* level = new std::vector<Block*>();
 	std::chrono::time_point<std::chrono::high_resolution_clock> TimeBuffer;
 	GameEngine* ge;
 	Game() {
 		this->hero = new Hero("sprite.png");
 		//start = clock();
 		//dt = std::chrono::high_resolution_clock::now();
-		this->ge = new GameEngine(hero);
+        level->push_back(new Block(new Point(0, 380), 640, 20));        
+		this->ge = new GameEngine(hero, level);
 	}
 	void LogicForHero(Hero* hero);
 
