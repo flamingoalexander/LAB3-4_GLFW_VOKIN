@@ -100,14 +100,14 @@ public:
         std::string StringLevel[12];
         StringLevel[0] = "bbbbbbbbbbbbbbbb";
         StringLevel[1] = "b00000000000000b";
-        StringLevel[2] = "b00000000000000b";
+        StringLevel[2] = "b00000000000b00b";
         StringLevel[3] = "b00000000000000b";
         StringLevel[4] = "b00000000000000b";
-        StringLevel[5] = "b00000000000000b";
+        StringLevel[5] = "b0000000000b000b";
         StringLevel[6] = "b00000000000000b";
         StringLevel[7] = "b000000000bbb00b";
         StringLevel[8] = "b00000000000000b";
-        StringLevel[9] = "b00000000000000b";
+        StringLevel[9] = "b00000000000b00b";
        StringLevel[10] = "b00000000000000b";
        StringLevel[11] = "bbbbbbbbbbbbbbbb";
         int y_coord = 0;

@@ -65,8 +65,8 @@ public:
 				//std::cout << "Collision" << std::endl;
 				if (physhero->isStand == false)
 				{
-					if ( (((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) > -5)
-						&& ((std::abs((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) < 5)))
+					if ( (((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) > -10)
+						&& ((std::abs((physhero->aabb->LeftUpPoint->y + 80) - (aabbs[i]->LeftUpPoint->y)) < 10)))
 					{
 						physhero->isStand = true;
 						physhero->py = aabbs[i]->LeftUpPoint->y - 80;
