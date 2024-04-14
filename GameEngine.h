@@ -86,8 +86,8 @@ public:
 				}
 
 
-				if ((((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) < 5) && 
-					(((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) > -5))
+				if ((((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) < 10) && 
+					(((physhero->aabb->LeftUpPoint->y) - (aabbs[i]->LeftUpPoint->y + aabbs[i]->height)) > -10))
 				{
 					physhero->py = aabbs[i]->LeftUpPoint->y + aabbs[i]->height;
 					physhero->sy = 0;

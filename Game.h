@@ -8,6 +8,7 @@
 #include "Block.h"
 #include "Point.h"
 #include <vector>
+#include <string>
 class Game
 {
 public:
@@ -20,10 +21,11 @@ public:
 		this->hero = new Hero("sprite.png");
 		//start = clock();
 		//dt = std::chrono::high_resolution_clock::now();
-        level->push_back(new Block(new Point(100, 320), 200, 100));        
-        level->push_back(new Block(new Point(300, 140), 100, 25));
-        level->push_back(new Block(new Point(481, 140), 100, 25));
+        //level->push_back(new Block(new Point(100, 320), 200, 100));        
+        //level->push_back(new Block(new Point(300, 140), 100, 25));
+        //level->push_back(new Block(new Point(481, 140), 100, 25));
         //level->push_back(new Block(new Point(300, 200), 100, 25));
+        CreateLevel();
 		this->ge = new GameEngine(hero, level);
 	}
 	void LogicForHero(Hero* hero);
@@ -89,6 +91,38 @@ public:
                 }
                 break;
             }
+        }
+    }
+
+
+
+    void CreateLevel() {
+        std::string StringLevel[12];
+        StringLevel[0] = "bbbbbbbbbbbbbbbb";
+        StringLevel[1] = "b00000000000000b";
+        StringLevel[2] = "b00000000000000b";
+        StringLevel[3] = "b00000000000000b";
+        StringLevel[4] = "b00000000000000b";
+        StringLevel[5] = "b00000000000000b";
+        StringLevel[6] = "b00000000000000b";
+        StringLevel[7] = "b000000000bbb00b";
+        StringLevel[8] = "b00000000000000b";
+        StringLevel[9] = "b00000000000000b";
+       StringLevel[10] = "b00000000000000b";
+       StringLevel[11] = "bbbbbbbbbbbbbbbb";
+        int y_coord = 0;
+        for (int i = 0; i < 12; i++)
+        {
+            int x_coord = 0;
+            for (int j = 0; j < 16; j++)
+            {
+                if (StringLevel[i].at(j) == 'b')
+                {
+                    this->level->push_back(new Block(new Point(x_coord, y_coord), 40, 40));
+                }
+                x_coord += 40;
+            }
+            y_coord += 40;
         }
     }
 };
